@@ -7,7 +7,7 @@
     "start": "npm run lite",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lite": "lite-server",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d app"
   },
   "repository": {
     "type": "git",
