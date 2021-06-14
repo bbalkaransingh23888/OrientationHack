@@ -1,2 +1,1 @@
-web: gunicorn __init_:app
-web: gunicorn wsgi:app
+web: gunicorn app_name:app --log-file -
