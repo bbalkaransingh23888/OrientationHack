@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, send_from_directory, request, redirect
+from flask import Flask, render_template, send_from_directory, request, redirect, Response
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -21,3 +21,9 @@ def blog():
 @app.route('/projects')
 def projects():
     return render_template('projectsPage.html', title="John Smith", url=os.getenv("URL"))
+
+@app.route('/health')
+def healthy():
+    return render_template('base.html'), 201
+    app_status = flask.Response(status=201)
+    return app_status
