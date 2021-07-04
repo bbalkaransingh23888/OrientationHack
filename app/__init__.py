@@ -1,12 +1,12 @@
 import os
 from flask import Flask, render_template, request
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+#from app.db import get_db
 #Response, send_from_directory, redirect
 #from dotenv import load_dotenv
 #from . import db
-from werkzeug.security import generate_password_hash, check_password_hash
-#from app.db import get_db
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
 
 #load_dotenv()
 app = Flask(__name__)
