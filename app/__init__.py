@@ -41,9 +41,7 @@ def projects():
 
 @app.route('/health')
 def healthy():
-    return render_template('base.html'), 201
-    app_status = flask.Response(status=201)
-    return app_status
+    return "This app works"
 
 
 @app.route('/login', methods=('GET', 'POST'))
