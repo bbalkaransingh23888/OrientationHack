@@ -1,11 +1,11 @@
 import os
 from flask import Flask, render_template, send_from_directory, request, redirect, Response
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from app.db import get_db
 
-load_dotenv()
+#load_dotenv()
 app = Flask(__name__)
 app.config['DATABASE'] = os.path.join(os.getcwd(), 'flask.sqlite')
 db.init_app(app)
