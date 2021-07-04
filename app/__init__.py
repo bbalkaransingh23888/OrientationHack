@@ -22,6 +22,19 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
+class UserModel(db.Model):
+    __tablename__ = 'users'
+
+    username = db.Column(db.String(), primary_key=True)
+    password = db.Column(db.String())
+
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
+
+    def __repr__(self):
+        return f"<User {self.username}>"
+
 
 @app.route('/')
 def index():
@@ -49,7 +62,6 @@ def login():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
-        db = get_db()
         error = None
         user = db.execute(
             'SELECT * FROM user WHERE username = ?', (username,)
@@ -75,7 +87,6 @@ def register():
     if request.method == 'POST':
         username = request.form.get('username')
         password = request.form.get('password')
-        db = get_db()
         error = None
 
         if not username:
