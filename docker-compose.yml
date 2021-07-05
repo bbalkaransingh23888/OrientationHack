@@ -27,7 +27,7 @@ services:
       - 443:443
     volumes:
       - nginx_secrets:/etc/letsencrypt
-      - ./user_conf.d:/etc/nginx/user_conf.db
+      - ./user_conf.d:/etc/nginx/user_conf.d
     depends_on: 
       - web
 
