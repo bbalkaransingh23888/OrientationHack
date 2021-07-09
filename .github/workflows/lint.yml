@@ -33,13 +33,6 @@ jobs:
         black: true
         flake8: true
         auto_fix: true
-    
-  build: Docker Buildx
-    runs-on: ubuntu-latest
-
-  steps:
-    - name: Check out Git Repo
-      uses: actions/checkout@v2
 
     - name: Set up Docker Buildx
       id: buildx
