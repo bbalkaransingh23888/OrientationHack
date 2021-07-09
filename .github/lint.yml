@@ -34,7 +34,7 @@ jobs:
         flake8: true
         auto_fix: true
     
-  build: 
+  build: Docker Buildx
     runs-on: ubuntu-latest
 
   steps:
@@ -53,7 +53,15 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/simplewhale:latest
+        cache-from: type=local,src=/tmp/.buildx-cache
+        cache-to: type=local,dest=/tmp/.buildx-cache
 
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
+
+    - name: Cache Docker Images
+      uses: actions/cache@v2
+      with:
+        path: /tmp/.buildx-cache
+        key: ${{ runner.os }}-buildx-${{ github.sha }}
 
