@@ -34,7 +34,6 @@ jobs:
           auto_fix: true
 
       - name: Set up Docker Buildx
-        id: buildx
         uses: docker/setup-buildx-actionv1
         with: 
           install: true
