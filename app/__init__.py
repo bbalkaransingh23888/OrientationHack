@@ -38,17 +38,23 @@ class UserModel(db.Model):
 
 @app.route("/")
 def index():
-    return render_template("aboutPage.html", title="Brandon Balkaransingh", url=os.getenv("URL"))
+    return render_template(
+        "aboutPage.html", title="Brandon Balkaransingh", url=os.getenv("URL")
+    )
 
 
 @app.route("/about")
 def about():
-    return render_template("aboutPage.html", title="Brandon Balkaransingh", url=os.getenv("URL"))
+    return render_template(
+        "aboutPage.html", title="Brandon Balkaransingh", url=os.getenv("URL")
+    )
 
 
 @app.route("/blog")
 def blog():
-    return render_template("blogPage.html", title="Brandon Balkaransingh", url=os.getenv("URL"))
+    return render_template(
+        "blogPage.html", title="Brandon Balkaransingh", url=os.getenv("URL")
+    )
 
 
 @app.route("/projects")
@@ -83,7 +89,12 @@ def login():
 
     ## TODO: Return a login page
     # return "Login page not yet implemented", 501
-    return render_template("login.html", title="Brandon Balkaransingh", url=os.getenv("URL")), 200
+    return (
+        render_template(
+            "login.html", title="Brandon Balkaransingh", url=os.getenv("URL")
+        ),
+        200,
+    )
 
 
 @app.route("/register", methods=("GET", "POST"))
@@ -111,6 +122,8 @@ def register():
     ## TODO: Return a restister page
     # return "Register Page not yet implemented", 501
     return (
-        render_template("register.html", title="Brandon Balkaransingh", url=os.getenv("URL")),
+        render_template(
+            "register.html", title="Brandon Balkaransingh", url=os.getenv("URL")
+        ),
         200,
     )
