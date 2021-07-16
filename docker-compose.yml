@@ -47,5 +47,6 @@ services:
       - /var/lib/docker/:/var/lib/docker:ro
 
 volumes:
+  mydatabase:
   nginx_secrets: 
     
