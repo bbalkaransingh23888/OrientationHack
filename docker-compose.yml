@@ -10,14 +10,14 @@ services:
       - .env
     volumes:
       - .:/portfolio
-    depends_on: 
+    depends_on:
       - db
 
   db:
     container_name: db
     image: postgres
     restart: always
-    env_file: 
+    env_file:
       - .env
     volumes:
       - mydatabase:/var/lib/postgresql/data
@@ -34,7 +34,7 @@ services:
     volumes:
       - nginx_secrets:/etc/letsencrypt
       - ./user_conf.d:/etc/nginx/user_conf.d
-    depends_on: 
+    depends_on:
       - web
 
   cadvisor:
@@ -51,5 +51,5 @@ services:
 
 volumes:
   mydatabase:
-  nginx_secrets: 
-    
+  nginx_secrets:
+  var:
